@@ -19,8 +19,7 @@ function middleware(doIt, req, res) {
 module.exports = (compiler, option) => {
   const doIt = expressMiddleware(compiler, option);
 
-  function* koaMiddleware(next) {
-    const ctx = this;
+  function* koaMiddleware(ctx, next) {
     const { req } = ctx;
     const locals = ctx.locals || ctx.state;
 
